@@ -31,13 +31,13 @@
     "@prisma/cli": "2.x",
     "@prisma/client": "2.x",
     "blitz": "canary",
+    "final-form": "4.x",
     "react": "0.0.0-experimental-7f28234f8",
     "react-dom": "0.0.0-experimental-7f28234f8",
     "react-error-boundary": "2.x",
+    "react-final-form": "6.x",
     "secure-password": "4.x",
-    "zod": "1.x",
-    "final-form": "4.x",
-    "react-final-form": "6.x"
+    "zod": "1.x"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.x",
@@ -48,6 +48,7 @@
     "@types/secure-password": "3.x",
     "@typescript-eslint/eslint-plugin": "4.x",
     "@typescript-eslint/parser": "4.x",
+    "autoprefixer": "9.8.6",
     "babel-eslint": "10.x",
     "eslint": "7.x",
     "eslint-config-react-app": "5.x",
@@ -60,12 +61,14 @@
     "jest": "26.x",
     "jest-environment-jsdom-fourteen": "1.x",
     "jest-watch-typeahead": "0.x",
-    "react-test-renderer": "16.x",
     "lint-staged": "10.x",
+    "postcss-cli": "7.1.2",
     "prettier": "2.x",
     "pretty-quick": "3.x",
-    "typescript": "4.x",
-    "ts-jest": "26.x"
+    "react-test-renderer": "16.x",
+    "tailwindcss": "1.8.8",
+    "ts-jest": "26.x",
+    "typescript": "4.x"
   },
   "private": true
 }
