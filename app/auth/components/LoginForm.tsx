@@ -4,6 +4,7 @@ import { LabeledTextField } from "app/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/components/Form"
 import login from "app/auth/mutations/login"
 import { LoginInput, LoginInputType } from "app/auth/validations"
+import Input from "../../components/Input"
 
 type LoginFormProps = {
   onSuccess?: () => void
@@ -12,8 +13,6 @@ type LoginFormProps = {
 export const LoginForm = (props: LoginFormProps) => {
   return (
     <div>
-      <h1>Login</h1>
-
       <Form<LoginInputType>
         submitText="Log In"
         schema={LoginInput}
@@ -34,13 +33,11 @@ export const LoginForm = (props: LoginFormProps) => {
           }
         }}
       >
-        <LabeledTextField name="email" label="Email" placeholder="Email" />
-        <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
+        <div className="flex flex-col column-center">
+          <Input type="email" placeholder="Email" />
+          <Input type="password" placeholder="Password" />
+        </div>
       </Form>
-
-      <div style={{ marginTop: "1rem" }}>
-        Or <Link href="/signup">Sign Up</Link>
-      </div>
     </div>
   )
 }

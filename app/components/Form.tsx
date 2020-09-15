@@ -44,7 +44,11 @@ export function Form<FormValues extends Record<string, unknown>>({
             </div>
           )}
 
-          <button type="submit" disabled={submitting}>
+          <button
+            type="submit"
+            disabled={submitting}
+            className="bg-blue-700 text-white px-32 py-1 rounded"
+          >
             {submitText}
           </button>
 

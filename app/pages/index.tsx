@@ -1,7 +1,14 @@
 import Layout from "app/layouts/Layout"
+import { Link } from "blitz"
 
 const Home = () => {
-  return <h1 className="text-5xl text-red-500">Hello</h1>
+  return (
+    <>
+      <Link href="/login">
+        <a>Login</a>
+      </Link>
+    </>
+  )
 }
 
 Home.getLayout = (page) => <Layout title="Home">{page}</Layout>
