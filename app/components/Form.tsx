@@ -1,6 +1,7 @@
 import React, { ReactNode, PropsWithoutRef } from "react"
 import { Form as FinalForm, FormProps as FinalFormProps } from "react-final-form"
 import * as z from "zod"
+import Button from "./Button"
 export { FORM_ERROR } from "final-form"
 
 type FormProps<FormValues> = {
@@ -44,13 +45,7 @@ export function Form<FormValues extends Record<string, unknown>>({
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={submitting}
-            className="bg-blue-700 text-white px-32 py-1 rounded"
-          >
-            {submitText}
-          </button>
+          <Button disabled={submitting}>{submitText}</Button>
 
           <style global jsx>{`
             .form > * + * {
