@@ -2,14 +2,12 @@
   "name": "blaa",
   "version": "1.0.0",
   "scripts": {
-    "start": "yarn watch:css && npx blitz start",
-    "studio": "yarn build:css && npx blitz db studio",
+    "start": "npx blitz start",
+    "studio": "npx blitz db studio",
     "build": "npx blitz build",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "build:css": "postcss app/assets/tailwind.css -o app/assets/main.css",
-    "watch:css": "postcss app/assets/tailwind.css -o app/assets/main.css"
+    "test:watch": "jest --watch"
   },
   "browserslist": [
     "defaults"
