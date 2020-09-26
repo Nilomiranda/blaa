@@ -1,20 +1,17 @@
+import { Link } from "blitz"
 import React from "react"
 
 interface TextLinkProps {
   children: React.ReactNode
+  href: string | undefined
 }
 
-const TextLink = React.forwardRef(({ onClick, href, children }, ref) => {
+const TextLink = ({ children, href }: TextLinkProps) => {
   return (
-    <a
-      href={href}
-      onClick={onClick}
-      ref={ref}
-      className="text-blue-700 cursor-pointer hover:underline"
-    >
-      {children}
-    </a>
+    <Link href={href}>
+      <a className="text-blue-700 cursor-pointer hover:underline">{children}</a>
+    </Link>
   )
-})
+}
 
 export default TextLink
