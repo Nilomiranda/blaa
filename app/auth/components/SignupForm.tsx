@@ -6,11 +6,11 @@ import Input from "../../components/Input"
 import Button from "app/components/Button"
 import TextLink from "app/components/TextLink"
 
-type LoginFormProps = {
+type SignUpFormProps = {
   onSuccess?: () => void
 }
 
-export const SignUpForm = (props: LoginFormProps) => {
+export const SignUpForm = (props: SignUpFormProps) => {
   return (
     <div>
       <Form<SignupInputType>
