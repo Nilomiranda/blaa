@@ -7,8 +7,6 @@ export { FORM_ERROR } from "final-form"
 type FormProps<FormValues> = {
   /** All your form fields */
   children: ReactNode
-  /** Text to display in the submit button */
-  submitText: string
   onSubmit: FinalFormProps<FormValues>["onSubmit"]
   initialValues?: FinalFormProps<FormValues>["initialValues"]
   schema?: z.ZodType<any, any>

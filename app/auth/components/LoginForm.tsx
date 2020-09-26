@@ -40,7 +40,7 @@ export const LoginForm = (props: LoginFormProps) => {
           <Button>Login</Button>
 
           <p className="mt-4">
-            Already have an account? <TextLink href="/sign-in">Sign in</TextLink>
+            Don't have an account? <TextLink href="/sign-up">Create one</TextLink>
           </p>
         </div>
       </Form>

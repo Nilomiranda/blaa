@@ -1,41 +1,51 @@
 import React from "react"
-import { LabeledTextField } from "app/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/components/Form"
-import signup from "app/auth/mutations/signup"
-import { SignupInput, SignupInputType } from "app/auth/validations"
+import login from "app/auth/mutations/login"
+import { LoginInput, LoginInputType } from "app/auth/validations"
+import Input from "../../components/Input"
+import Button from "app/components/Button"
+import TextLink from "app/components/TextLink"
 
-type SignupFormProps = {
+type LoginFormProps = {
   onSuccess?: () => void
 }
 
-export const SignupForm = (props: SignupFormProps) => {
+export const SignUpForm = (props: LoginFormProps) => {
   return (
     <div>
-      <h1>Create an Account</h1>
-
-      <Form<SignupInputType>
-        submitText="Create Account"
-        schema={SignupInput}
+      <Form<LoginInputType>
+        schema={LoginInput}
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
           try {
-            await signup({ email: values.email, password: values.password })
+            await login({ email: values.email, password: values.password })
             props.onSuccess && props.onSuccess()
           } catch (error) {
-            if (error.code === "P2002" && error.meta?.target?.includes("email")) {
-              // This error comes from Prisma
-              return { email: "This email is already being used" }
+            if (error.name === "AuthenticationError") {
+              return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
             } else {
-              return { [FORM_ERROR]: error.toString() }
+              return {
+                [FORM_ERROR]:
+                  "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+              }
             }
           }
         }}
       >
-        <LabeledTextField name="email" label="Email" placeholder="Email" />
-        <LabeledTextField name="password" label="Password" placeholder="Password" type="password" />
+        <div className="flex flex-col column-center">
+          <Input type="email" placeholder="Email" />
+          <Input type="password" placeholder="Password" />
+          <Input type="password" placeholder="Confirm your password" />
+
+          <Button>Login</Button>
+
+          <p className="mt-4">
+            Already have an account? <TextLink href="/login">Log in</TextLink>
+          </p>
+        </div>
       </Form>
     </div>
   )
 }
 
-export default SignupForm
+export default SignUpForm
