@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "blitz"
-import { LabeledTextField } from "app/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/components/Form"
 import login from "app/auth/mutations/login"
 import { LoginInput, LoginInputType } from "app/auth/validations"
 import Input from "../../components/Input"
+import Button from "app/components/Button"
+import TextLink from "app/components/TextLink"
 
 type LoginFormProps = {
   onSuccess?: () => void
@@ -14,7 +15,6 @@ export const LoginForm = (props: LoginFormProps) => {
   return (
     <div>
       <Form<LoginInputType>
-        submitText="Log In"
         schema={LoginInput}
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
@@ -36,6 +36,15 @@ export const LoginForm = (props: LoginFormProps) => {
         <div className="flex flex-col column-center">
           <Input type="email" placeholder="Email" />
           <Input type="password" placeholder="Password" />
+
+          <Button>Login</Button>
+
+          <p className="mt-4">
+            Already have an account?{" "}
+            <Link href="/sign-in" passHref>
+              <TextLink>Sign in</TextLink>
+            </Link>
+          </p>
         </div>
       </Form>
     </div>

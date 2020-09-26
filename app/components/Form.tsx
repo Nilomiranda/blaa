@@ -16,7 +16,6 @@ type FormProps<FormValues> = {
 
 export function Form<FormValues extends Record<string, unknown>>({
   children,
-  submitText,
   schema,
   initialValues,
   onSubmit,
@@ -44,8 +43,6 @@ export function Form<FormValues extends Record<string, unknown>>({
               {submitError}
             </div>
           )}
-
-          <Button disabled={submitting}>{submitText}</Button>
 
           <style global jsx>{`
             .form > * + * {

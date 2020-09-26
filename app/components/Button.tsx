@@ -12,7 +12,7 @@ const Button = ({ onClick, children, disabled }: ButtonProps) => {
       type="submit"
       onClick={onClick}
       disabled={disabled}
-      className={`bg-blue-700 text-white px-32 py-2 rounded ${disabled ? "opacity-50" : ""}`}
+      className={`bg-blue-700 text-white px-32 py-2 mt-4 rounded ${disabled ? "opacity-50" : ""}`}
     >
       {children}
     </button>
