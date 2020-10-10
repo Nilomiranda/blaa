@@ -16,8 +16,9 @@ export const LoginForm = (props: LoginFormProps) => {
     <div>
       <Form<LoginInputType>
         schema={LoginInput}
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ email: "danilo@email.com", password: "12345678" }}
         onSubmit={async (values) => {
+          console.log("submittin....", values)
           try {
             await login({ email: values.email, password: values.password })
             props.onSuccess && props.onSuccess()
@@ -34,11 +35,12 @@ export const LoginForm = (props: LoginFormProps) => {
         }}
       >
         <div className="flex flex-col column-center">
-          <Input type="email" placeholder="Email" />
-          <Input type="password" placeholder="Password" />
+          <Input type="email" placeholder="Email" name="email" />
+          {/*<Input type="email" placeholder="Email" autoComplete="email"/>*/}
+          {/*<Input type="password" placeholder="Password" autoComplete="current-password" />*/}
+          <Input type="password" placeholder="Password" name="password" />
 
           <Button>Login</Button>
-
           <p className="mt-4">
             Don't have an account? <TextLink href="/sign-up">Create one</TextLink>
           </p>
