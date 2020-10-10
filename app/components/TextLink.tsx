@@ -3,7 +3,7 @@ import React from "react"
 
 interface TextLinkProps {
   children: React.ReactNode
-  href: string | undefined
+  href: string
 }
 
 const TextLink = ({ children, href }: TextLinkProps) => {
